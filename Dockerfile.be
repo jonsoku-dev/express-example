@@ -1,5 +1,7 @@
 FROM node:lts
 
+RUN npm install pm2 -g
+
 # Create app directory
 WORKDIR /usr/src/app
 
@@ -17,4 +19,4 @@ COPY . .
 
 EXPOSE 8080
 
-CMD [ "node", "src/server.js" ]
+CMD ["pm2-runtime", "src/server.js"]
